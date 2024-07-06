@@ -1,4 +1,4 @@
-Scala Tutorial		(https://www.tutorialspoint.com)
+Scala Tutorial		(https://www.tutorialspoint.com/scala/)
 _____________________ 1 _____________________
 
 - Khai báo biến:
@@ -20,47 +20,242 @@ Ví dụ:
 
 _____________________ 2 _____________________
 
+- Class (lớp) và Object (đối tượng):
+Ví dụ:
+class Point(xc: Int, yc: Int) {
+	var x: Int = xc;
+	var y: Int = yc;
 
+	def move(dx: Int, dy: Int) {
+		x = x + dx;
+		y = y + dy;
+	println ("Point x location : " + x);
+	println ("Point y location : " + y);
+	}
+}
+
+object Demo {
+	def main(args: Array[String]) {
+		 val pt = new Point(10, 20);
+
+		// Move to a new location
+		pt.move(10, 10);
+	}
+}
+
+// Trả về:
+// Point x location : 20
+// Point y location : 30
+
+// Xem thêm: https://www.tutorialspoint.com/scala/scala_classes_objects.htm
 
 _____________________ 3 _____________________
 
-
+- Scala access modifiers: https://www.tutorialspoint.com/scala/scala_access_modifiers.htm
 
 _____________________ 4 _____________________
 
-
+- Toán tử giống với C++, Java,...
+- if, else giống với C++, Java,...
+- for loop, while loop, do-while loop giống với C++, Java
 
 _____________________ 5 _____________________
 
+- Khai báo hàm:
+def functionName ([list of parameters]) : [return type] = {
+	function body
+ 	return [expr]
+}
+Ví dụ:
+object add {
+	def addInt( a:Int, b:Int ) : Int = {
+		var sum:Int = 0;
+		sum = a + b;
+		return sum;
+	}
+}
 
+
+- Hàm không trả về kết quả gì thì return type là Unit:
+Ví dụ:
+object Hello{
+	def printMe( ) : Unit = {
+		println("Hello, Scala!");
+	}
+}
 
 _____________________ 6 _____________________
 
+- Gọi hàm:
+functionName( list of parameters )
 
+- Nếu một hàm được gọi bằng cách sử dụng một thể hiện của đối tượng, thì chúng ta sẽ sử dụng ký hiệu dấu chấm tương tự như Java như sau:
+[instance.]functionName( list of parameters )
+Ví dụ:
+object Demo {
+	def main(args: Array[String]) {
+		println( "Returned Value : " + addInt(5,7) );
+	}
+   
+	def addInt(a:Int, b:Int) : Int = {
+		var sum: Int = 0;
+		sum = a + b;
+
+		return sum;
+	}
+}
+// Trả về: 12
 
 _____________________ 7 _____________________
 
+- Closures
++ Định nghĩa: Closure là một hàm, có giá trị trả về phụ thuộc vào giá trị của một hoặc nhiều biến được khai báo bên ngoài hàm này.
+val multiplier = (i:Int) => i * factor
 
+Ví dụ:
+object Demo {
+	def main(args: Array[String]) {
+		println( "multiplier(1) value = " +  multiplier(1) );
+		println( "multiplier(2) value = " +  multiplier(2) );
+	}
+	var factor = 3;
+	val multiplier = (i:Int) => i * factor;
+}
+
+// Trả về
+// multiplier(1) value = 3
+// multiplier(2) value = 6
 
 _____________________ 8 _____________________
 
+- String:
++ Khai báo chuỗi
+val str: String = "Hello, world!"
 
++ Độ dài chuỗi:
+var len = str.length()
+
++ Nối chuỗi
+str1.concat(str2)
+Hoặc: str1 + str2
+Ví dụ:
+"My name is ".concat("Zara");
+// In ra: My name is Zara
+
++ The ‘s’ String Interpolator
+Ví dụ 1:
+val name = “James”;
+println(s “Hello, $name”);
+// In ra: Hello, James
+
+Ví dụ 2:
+println(s “1 + 1 = ${1 + 1}”)
+// In ra: 1 + 1 = 2
+
++ The ‘f’ Interpolator
+val height = 1.9d
+val name = "James"
+println(f"$name%s is $height%2.2f meters tall")
+// In ra: James is 1.90 meters tall
+
++ ‘raw’ Interpolator
+	Bộ nội suy 'raw' tương tự như bộ nội suy 's' ngoại trừ việc nó không thực hiện thoát các ký tự theo nghĩa đen trong một chuỗi. Các đoạn mã sau trong một bảng sẽ khác nhau về cách sử dụng bộ nội suy 's' và 'raw'. Trong kết quả đầu ra của cách sử dụng 's', '\n' có hiệu lực như dòng mới và trong kết quả đầu ra của cách sử dụng 'raw', '\n' sẽ không có hiệu lực. Nó sẽ in toàn bộ chuỗi với các ký tự thoát.
+
+** Ví dụ với ‘s’ interpolator
+object Demo {
+	def main(args: Array[String]) {
+		println(s"Result = \n a \n b")
+	}
+}
+// In ra:
+Result =
+a
+b
+
+** Ví dụ với ‘raw’ interpolator usage
+object Demo {
+	def main(args: Array[String]) {
+		println(raw"Result = \n a \n b")
+	}
+}
+// In ra: Result = \n a \n b
+
+
+// Xem thêm các phương thức string: https://www.tutorialspoint.com/scala/scala_strings.htm
 
 _____________________ 9 _____________________
 
+- Array:
++ Có 2 cách khai báo array:
+var z:Array[String] = new Array[String](3)
+hoặc
+var z = new Array[String](3)
 
+Ví dụ: 
+var z = Array("Zara", "Nuha", "Ayan")
+hoặc
+var z = new Array[String](3)
+z(0) = "Zara"; z(1) = "Nuha"; z(4/2) = "Ayan"
+
++ Để in ra array:
+println(z.mkString(", "))
+Hoặc dùng loop
+
++ Nối mảng:
+var myList3 =  concat( myList1, myList2)
+
+
+// Xem thêm các phương thức array: https://www.tutorialspoint.com/scala/scala_arrays.htm
 
 _____________________ 10 _____________________
 
-
+- Multi-Dimensional Array (mảng đa chiều)
+Ví dụ:
+var myMatrix = ofDim[Int](3,3)
+object Demo {
+   def main(args: Array[String]) {
+      var myMatrix = ofDim[Int](3,3)
+      
+      // build a matrix
+      for (i <- 0 to 2) {
+         for ( j <- 0 to 2) {
+            myMatrix(i)(j) = j;
+         }
+      }
+      
+      // Print two dimensional array
+      for (i <- 0 to 2) {
+         for ( j <- 0 to 2) {
+            print(" " + myMatrix(i)(j));
+         }
+         println();
+      }
+   }
+}
+// In ra:
+0 1 2
+0 1 2
+0 1 2
 
 _____________________ 11 _____________________
 
+- For loop:
++ Cách 1:		// for i in arr
+var myList = Array(1.9, 2.9, 3.4, 3.5)
+for ( x <- myList ) {
+	println( x )
+}
 
++ Cách 2:		// for i in range(len(arr))
+var myList = Array(1.9, 2.9, 3.4, 3.5)
+for ( i <- 0 to (myList.length - 1)) {
+	total += myList(i);
+}
 
 _____________________ 12 _____________________
 
-
+- Scala có một bộ thư viện bộ sưu tập phong phú. Bộ sưu tập là các containers của mọi thứ. Những containers đó có thể được sắp xếp theo trình tự, các tập hợp tuyến tính của các mục như List, Tuple, Option, Map, v.v.
+// Xem tại: https://www.tutorialspoint.com/scala/scala_collections.htm
 
 _____________________ 13 _____________________
 
@@ -91,46 +286,6 @@ _____________________ 19 _____________________
 
 
 _____________________ 20 _____________________
-
-
-
-_____________________ 21 _____________________
-
-
-
-_____________________ 22 _____________________
-
-
-
-_____________________ 23 _____________________
-
-
-
-_____________________ 24 _____________________
-
-
-
-_____________________ 25 _____________________
-
-
-
-_____________________ 26 _____________________
-
-
-
-_____________________ 27 _____________________
-
-
-
-_____________________ 28 _____________________
-
-
-
-_____________________ 29 _____________________
-
-
-
-_____________________ 30 _____________________
 
 
 
