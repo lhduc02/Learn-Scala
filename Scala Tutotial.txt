@@ -180,6 +180,58 @@ object Demo {
 }
 // In ra: Result = \n a \n b
 
+// Một số phương thức string phổ biến (From ChatGPT with love)
+1.	length: Trả về độ dài của chuỗi.
+Ví dụ: val str = "Hello"; val len = str.length  // len: Int = 5
+
+2.	charAt(index: Int): Trả về ký tự tại vị trí chỉ định.
+Ví dụ: val char = str.charAt(1)  // char: Char = 'e'
+
+3.	concat(str: String): Nối thêm chuỗi vào chuỗi hiện tại.
+Ví dụ: val str2 = str.concat(" World")  // str2: String = "Hello World"
+
+4.	contains(seq: CharSequence): Kiểm tra xem chuỗi có chứa một chuỗi con hay không.
+Ví dụ: val isContained = str.contains("ell")  // isContained: Boolean = true
+
+5.	endsWith(suffix: String): Kiểm tra xem chuỗi có kết thúc bằng một hậu tố nhất định không.
+Ví dụ: val isEndsWith = str.endsWith("lo")  // isEndsWith: Boolean = true
+
+6.	startsWith(prefix: String): Kiểm tra xem chuỗi có bắt đầu bằng một tiền tố nhất định không.
+Ví dụ: val isStartsWith = str.startsWith("He")  // isStartsWith: Boolean = true
+
+7.	equalsIgnoreCase(anotherString: String): So sánh hai chuỗi không phân biệt chữ hoa chữ thường.
+Ví dụ: val isEqual = str.equalsIgnoreCase("hello")  // isEqual: Boolean = true
+
+8.	indexOf(ch: Int): Trả về chỉ số của ký tự đầu tiên xuất hiện trong chuỗi.
+Ví dụ: val index = str.indexOf('e')  // index: Int = 1
+
+9.	lastIndexOf(ch: Int): Trả về chỉ số của ký tự cuối cùng xuất hiện trong chuỗi.
+Ví dụ: val lastIndex = str.lastIndexOf('l')  // lastIndex: Int = 3
+
+10.	isEmpty: Kiểm tra xem chuỗi có rỗng hay không.
+Ví dụ: val isEmpty = str.isEmpty  // isEmpty: Boolean = false
+
+11.	replace(oldChar: Char, newChar: Char): Thay thế tất cả các ký tự cũ bằng ký tự mới.
+Ví dụ: val newStr = str.replace('e', 'a')  // newStr: String = "Hallo"
+
+12.	split(regex: String): Tách chuỗi thành mảng các chuỗi con dựa trên biểu thức chính quy.
+Ví dụ: val parts = str.split(" ")  // parts: Array[String] = Array("Hello")
+
+13.	substring(beginIndex: Int, endIndex: Int): Lấy một phần của chuỗi từ chỉ số bắt đầu đến chỉ số kết thúc.
+val subStr = str.substring(0, 2)  // subStr: String = "He"
+
+14.	toLowerCase: Chuyển chuỗi thành chữ thường.
+Ví dụ: val lowerStr = str.toLowerCase  // lowerStr: String = "hello"
+
+15.	toUpperCase: Chuyển chuỗi thành chữ hoa.
+Ví dụ: val upperStr = str.toUpperCase  // upperStr: String = "HELLO"
+
+16.	trim: Loại bỏ khoảng trắng ở đầu và cuối chuỗi.
+Ví dụ: val trimmedStr = "  Hello  ".trim  // trimmedStr: String = "Hello"
+
+17.	format(args: Any*): Định dạng chuỗi theo các tham số đã cho.
+Ví dụ: val formattedStr = "Hello %s".format("World")  // formattedStr: String = "Hello World"
+
 
 // Xem thêm các phương thức string: https://www.tutorialspoint.com/scala/scala_strings.htm
 
@@ -259,6 +311,7 @@ _____________________ 12 _____________________
 
 _____________________ 13 _____________________
 
+Triats:
 
 
 _____________________ 14 _____________________
